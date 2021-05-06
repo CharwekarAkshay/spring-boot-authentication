@@ -2,7 +2,7 @@ package com.mycompany.domain;
 
 import javax.validation.constraints.NotNull;
 
-public class LoginDTO {
+public class AuthenticationRequestDTO {
     @NotNull
     private String username;
 
@@ -12,16 +12,36 @@ public class LoginDTO {
     private String firstName;
     private String lastName;
 
-    public LoginDTO() {
+    /**
+     * Default constructor tot handle object creation1
+     */
+
+    public AuthenticationRequestDTO() {
     }
 
     /**
-     * Constructor to capture username and password
+     * Fully qualified constructor to handle all the values
      * 
-     * @param username Username String
-     * @param password Password String
+     * @param String username
+     * @param String password
+     * @param String firstName
+     * @param String lastName
      */
-    public LoginDTO(String username, String password) {
+
+    public AuthenticationRequestDTO(String username, String password, String firstName, String lastName) {
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    /**
+     * Constructor to handling userValues
+     * 
+     * @param String username
+     * @param String password
+     */
+    public AuthenticationRequestDTO(String username, String password) {
         this.username = username;
         this.password = password;
     }
@@ -57,4 +77,5 @@ public class LoginDTO {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
 }
